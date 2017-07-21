@@ -1,0 +1,34 @@
+.list-container {
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.new-item-input {
+  margin-right: 58px;
+}
+
+.new-item-input, .list-item-input {
+  padding: 20px 20px 10px 20px;
+  font-size: 11pt;
+  border: solid gray;
+  border-width: 0 0 0.1em 0;
+}
+
+.new-item-input:focus, .list-item-input:focus {
+  outline: none;
+  transition: ease-in-out 300ms;
+  font-size: 13pt;
+}
+
+.btn-remove {
+  /* position: absolute;
+  left: -50px; */
+}

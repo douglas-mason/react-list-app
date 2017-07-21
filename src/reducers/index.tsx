@@ -1,6 +1,6 @@
 import { ListItemAction } from '../actions';
 import { StoreState } from '../types/index';
-import { ADD_LIST_ITEM, REMOVE_LIST_ITEM} from '../constants/index';
+import { ADD_LIST_ITEM, REMOVE_LIST_ITEM } from '../constants/index';
 
 export const listReducer =
   (state: StoreState, action: ListItemAction): StoreState => {

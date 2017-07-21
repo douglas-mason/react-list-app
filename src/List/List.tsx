@@ -13,11 +13,19 @@ class List extends React.Component<{}, { items: Item[]}> {
     };
     this.addItemToList = this.addItemToList.bind(this);
     this.removeItemFromList = this.removeItemFromList.bind(this);
+    this.updateListItem = this.updateListItem.bind(this);
   }
 
-  // updateItemName(event: any) {
-  //   const value = event.target.value;
-  // }
+  updateListItem(updatedItem: Item) {
+    const idx = this.state.items.findIndex(item => {
+      return item.id === updatedItem.id;
+    });
+    this.state.items[idx] = updatedItem;
+    console.log(updatedItem);
+    this.setState({
+      ...this.state,
+    });
+  }
 
   addItemToList (event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.which === 13) {
@@ -54,23 +62,29 @@ class List extends React.Component<{}, { items: Item[]}> {
           <ListItem
             item={item}
             onRemove={this.removeItemFromList}
+            onUpdate={this.updateListItem}
           />
         </li>
       );
     });
 
     return (
-      <ul>
-        {listItems}
-        <li key={this.state.items.length + 1}>
-          <input
-            onKeyUp={this.addItemToList}
-            defaultValue=""
-            type="text"
-            placeholder="Enter an item"
-          />
-        </li>
-      </ul>
+      <section className="list-container">
+        <ul className="list">
+          {listItems}
+          <li key={this.state.items.length + 1}>
+            <input
+              className="new-item-input"
+              name="New List Item"
+              onKeyUp={this.addItemToList}
+              autoFocus={true}
+              defaultValue=""
+              type="text"
+              placeholder="Enter an item"
+            />
+          </li>
+        </ul>
+      </section>
     );
   }
 }

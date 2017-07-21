@@ -14,7 +14,7 @@ class App extends React.Component<{}, {}> {
           <h2>Welcome to List App</h2>
         </div>
         <h2>List</h2>
-        <List/>
+          <List/>
       </div>
     );
   }
